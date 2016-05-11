@@ -63,6 +63,9 @@ namespace EventZ.API
             app.UseStaticFiles();
 
             app.UseMvc();
+            //app.Properties["host.AppMode"] = "development";
+
+            //app.UseDeveloperExceptionPage();
         }
 
         // Entry point for the application.
