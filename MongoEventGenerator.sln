@@ -5,6 +5,21 @@ VisualStudioVersion = 14.0.25123.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoEventGenerator", "MongoEventGenerator\MongoEventGenerator.csproj", "{9780AE22-3B0D-45DE-934F-1CD1668B4429}"
 EndProject
+Project("{8BB2217D-0F2D-49D1-97BC-3654ED321F3B}") = "EventZ.API", "EventZ.API\EventZ.API.xproj", "{EA47F929-87D8-44B9-94DF-636EEFE7CC63}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PublishScripts", "PublishScripts", "{464B9514-8814-430C-AFCF-B1E55A06FD9A}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Scripts", "Scripts", "{08BF34AD-37D6-4989-8783-F4A03077E554}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1 = PublishScripts\Scripts\Deploy-AzureResourceGroup.ps1
+	EndProjectSection
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Templates", "Templates", "{265736E0-F641-45DD-A125-F431BDDBB0DE}"
+	ProjectSection(SolutionItems) = preProject
+		PublishScripts\Templates\EventZAPI.json = PublishScripts\Templates\EventZAPI.json
+		PublishScripts\Templates\EventZAPI.param.dev.json = PublishScripts\Templates\EventZAPI.param.dev.json
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,8 +30,16 @@ Global
 		{9780AE22-3B0D-45DE-934F-1CD1668B4429}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9780AE22-3B0D-45DE-934F-1CD1668B4429}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9780AE22-3B0D-45DE-934F-1CD1668B4429}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA47F929-87D8-44B9-94DF-636EEFE7CC63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA47F929-87D8-44B9-94DF-636EEFE7CC63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA47F929-87D8-44B9-94DF-636EEFE7CC63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA47F929-87D8-44B9-94DF-636EEFE7CC63}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{08BF34AD-37D6-4989-8783-F4A03077E554} = {464B9514-8814-430C-AFCF-B1E55A06FD9A}
+		{265736E0-F641-45DD-A125-F431BDDBB0DE} = {464B9514-8814-430C-AFCF-B1E55A06FD9A}
 	EndGlobalSection
 EndGlobal
