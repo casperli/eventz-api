@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
+using Swashbuckle.SwaggerGen;
 
 namespace EventZ.API
 {
@@ -46,6 +47,27 @@ namespace EventZ.API
                   options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
 
               });
+            //services.AddSwaggerGen();
+
+            //var pathToDoc ="./";
+
+            //services.ConfigureSwaggerDocument(options =>
+            //{
+            //    options.SingleApiVersion(new Info
+            //    {
+            //        Version = "v1",
+            //        Title = "Geo Search API",
+            //        Description = "A simple api to search using geo location in Elasticsearch",
+            //        TermsOfService = "None"
+            //    });
+            //    options.OperationFilter(new Swashbuckle.SwaggerGen.XmlComments.ApplyXmlActionComments(pathToDoc));
+            //});
+
+            //services.ConfigureSwaggerSchema(options =>
+            //{
+            //    options.DescribeAllEnumsAsStrings = true;
+            //    options.ModelFilter(new Swashbuckle.SwaggerGen.XmlComments.ApplyXmlTypeComments(pathToDoc));
+            //});
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline
@@ -66,6 +88,12 @@ namespace EventZ.API
             //app.Properties["host.AppMode"] = "development";
 
             //app.UseDeveloperExceptionPage();
+
+            app.UseDeveloperExceptionPage();
+
+            //app.UseSwaggerGen();
+            //app.UseSwaggerUi();
+
         }
 
         // Entry point for the application.

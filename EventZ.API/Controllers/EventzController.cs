@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading;
 using System.Threading.Tasks;
 using Microsoft.AspNet.Http;
 using Microsoft.AspNet.Mvc;
@@ -82,8 +83,29 @@ namespace EventZ.API.Controllers
             var filter = Builders<EventZEvent>.Filter.Eq(e => e.Id, idx);
             var result = await eventCollection.Find(filter).FirstOrDefaultAsync();
 
-            result.Invitees.Add(new InvitedPerson { Accepted = 1, Name = name.Name });
+            if (result.Invitees.Exists(i=>i.Name.Equals(name.Name,StringComparison.OrdinalIgnoreCase)))
+            {
+                return this.Ok();
+            }
 
+            result.Invitees.Add(new InvitedPerson { Accepted = 1, Name = name.Name });
+            var update = Builders<EventZEvent>.Update.Set(e => e.Invitees, result.Invitees);
+
+            eventCollection.FindOneAndUpdate(filter, update);
+
+            return this.Ok();
+        }
+
+        [HttpPost("{id}/deregister/")]
+        public async Task<ActionResult> DeRegisterEvent(string id, [FromBody]RegisterNameDto name)
+        {
+            var idx = new ObjectId(id);
+            var eventCollection = db.GetCollection<EventZEvent>("EventList");
+
+            var filter = Builders<EventZEvent>.Filter.Eq(e => e.Id, idx);
+            var result = await eventCollection.Find(filter).FirstOrDefaultAsync();
+
+            result.Invitees = result.Invitees.Where(i => i.Name != name.Name).ToList();
 
             var update = Builders<EventZEvent>.Update.Set(e => e.Invitees, result.Invitees);
 
@@ -91,6 +113,7 @@ namespace EventZ.API.Controllers
 
             return this.Ok();
         }
+
 
         public class EventZEvent
         {
