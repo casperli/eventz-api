@@ -43,7 +43,7 @@ namespace EventZ.API
              .AddJsonOptions(options =>
               {
                   options.SerializerSettings.ContractResolver = new CamelCasePropertyNamesContractResolver();
-                  options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Ignore;
+                  options.SerializerSettings.DefaultValueHandling = DefaultValueHandling.Populate;
                   options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
 
               });

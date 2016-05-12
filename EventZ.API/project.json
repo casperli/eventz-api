@@ -18,11 +18,14 @@
     "Microsoft.Extensions.Logging.Debug": "1.0.0-rc1-final",
     "Swashbuckle": "6.0.0-rc1-final",
     "Swashbuckle.SwaggerGen": "6.0.0-rc1-final",
-    "Swashbuckle.SwaggerUi": "6.0.0-rc1-final"
+    "Swashbuckle.SwaggerUi": "6.0.0-rc1-final",
+    "Parse": "1.7.0",
+    "System.ObjectModel": "4.0.0",
+    "System.Net.Http": "4.0.0"
   },
 
   "commands": {
-    "web": "Microsoft.AspNet.Server.Kestrel",
+    "web": "Microsoft.AspNet.Server.Kestrel"
   },
 
   "frameworks": {
