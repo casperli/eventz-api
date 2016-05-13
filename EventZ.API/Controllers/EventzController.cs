@@ -124,7 +124,6 @@ namespace EventZ.API.Controllers
                 client.BaseAddress = new Uri(baseUri);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Add("X-Parse-Application-Id", AppId);
-                //client.DefaultRequestHeaders.Add("Content-Type", "application/json");
 
                 if (ivent == null)
                 {
@@ -176,7 +175,6 @@ namespace EventZ.API.Controllers
         public class WriteEvent
         {
             [BsonId]
-            //[BsonElement("id")]
             public ObjectId Id { get; set; }
 
             [BsonElement("title")]
